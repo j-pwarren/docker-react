@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t jpwarren/docker-react -f Doverfile.dev .
+
+script:
+  - docker run -e CI=true jpwarren/docker-react npm run test
